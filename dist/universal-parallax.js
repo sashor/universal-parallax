@@ -102,7 +102,7 @@ var universalParallax = function universalParallax() {
 				parallaxContainer.parentElement.style.position = 'relative';
 			}
 
-			var imgData = parallax[i].dataset.parallaxImage;
+			var imgData = parallax[i].getAttribute('data-parallax-image');
 			// add image to div if none is specified
 			if (typeof imgData !== 'undefined') {
 				parallax[i].style.backgroundImage = 'url(' + imgData + ')';
