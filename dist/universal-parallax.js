@@ -65,15 +65,15 @@ var universalParallax = function universalParallax() {
 
 		// recalculate height on resize
 		if (!mobile) {
-			window.addEventListener("resize", function () {
+			scrollElement.addEventListener("resize", function () {
 				windowHeight = window.innerHeight;
 				calculateHeight(parallax, speed);
 			});
 		}
 
 		// Add scroll event listener
-		window.addEventListener("scroll", function () {
-			animateParallax(parallax, speed);
+		scrollElement.addEventListener("scroll", function () {
+			animateParallax(parallax, speed, scrollElement);
 		});
 	};
 
@@ -85,6 +85,7 @@ var universalParallax = function universalParallax() {
 
 		param = {
 			speed: typeof param.speed !== 'undefined' ? param.speed : 1.5,
+			scrollElement: typeof param.scrollElement !== 'undefined' ? param.scrollElement : window,
 			className: typeof param.className !== 'undefined' ? param.className : 'parallax'
 		};
 		var parallax = document.getElementsByClassName(param.className);
@@ -118,6 +119,6 @@ var universalParallax = function universalParallax() {
 		};
 
 		// when init completed, run function
-		up(parallax, param.speed);
+		up(parallax, param.speed, param.scrollElement);
 	};
 };
