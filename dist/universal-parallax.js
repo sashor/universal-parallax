@@ -121,3 +121,5 @@ var universalParallax = function universalParallax() {
 		up(parallax, param.speed);
 	};
 };
+
+window.universalParallax = universalParallax
